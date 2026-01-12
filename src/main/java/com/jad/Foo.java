@@ -36,8 +36,7 @@ public class Foo {
     public void addBaz(Baz baz) {
         this.bazs.add(baz);
     }
-//    public void addGrault() {
-//        this.graults.add();
-//    }
-
+    public void addGrault() {
+        this.graults.add(new Grault(this));
+    }
 }
