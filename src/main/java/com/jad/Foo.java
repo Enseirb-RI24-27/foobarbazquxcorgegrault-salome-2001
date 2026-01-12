@@ -12,6 +12,7 @@ public class Foo {
     // +Foo(bar : Bar)
     public Foo(Bar bar) {
         this.bar = bar;
+        this.bazs = new ArrayList<>();  // +addBaz(baz : Baz) : void
     }
 
     public void setCorge(Corge corge) {
