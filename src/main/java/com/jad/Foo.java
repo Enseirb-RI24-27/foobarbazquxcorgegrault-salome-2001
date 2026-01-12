@@ -13,6 +13,9 @@ public class Foo {
     public Foo(Bar bar) {
         this.bar = bar;
         this.bazs = new ArrayList<>();  // +addBaz(baz : Baz) : void
+        this.qux = qux;
+        this.corge = corge;
+        this.graults = new ArrayList<>();
     }
 
     public void setCorge(Corge corge) {
