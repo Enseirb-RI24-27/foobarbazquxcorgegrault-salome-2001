@@ -5,21 +5,24 @@ import java.util.ArrayList;
 public class Foo {
     private Bar bar;                    // <-bar : Bar
     private ArrayList<Baz> bazs;        // <-bazs : Baz[]
-    private Qux qux;                    // <-qux : Qux
+    private Qux qux = new Qux();                    // <-qux : Qux
     private Corge corge;                // <->corge : Corge
-    private ArrayList<Grault> graults;  // <-graults : Graults[]
+    private ArrayList<Grault> graults = new ArrayList<>();  // <-graults : Graults[]
 
     // +Foo(bar : Bar)
     public Foo(Bar bar) {
         this.bar = bar;
         this.bazs = new ArrayList<>();  // +addBaz(baz : Baz) : void
-        this.qux = qux;
-        this.corge = corge;
-        this.graults = new ArrayList<>();
     }
 
     public void setCorge(Corge corge) {
+        if (this.corge != null) {
+            this.corge.setFoo(null);
+        }
         this.corge = corge;
+        if (corge != null && corge.getFoo() != this) {
+            corge.setFoo(this);
+        }
     }
     public Bar getBar() {
         return this.bar;
